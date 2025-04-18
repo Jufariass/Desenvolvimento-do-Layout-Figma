@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Avanti - Super Sale</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+    }
+
+    .top-bar {
+      background-color: #0061A1;
+      color: #fff;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .top-bar a {
+      color: #fff;
+      text-decoration: none;
+      background-color: #25d366;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .promo-bar {
+      background-color: #0f7ccb;
+      color: #ffffff;
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    header.header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 32px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      flex-wrap: wrap;
+    }
+
+    .grupo-esquerdo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding-left: 200px;
+    }
+
+    .grupo-direito {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0c0d0d;
+    }
+
+    .search-container {
+      display: flex;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      overflow: hidden;
+      background-color: #fff;
+    }
+
+    .search-container input {
+      border: none;
+      padding: 8px;
+      width: 300px;
+      outline: none;
+    }
+
+    .search-container button {
+      background-color: #f8f4f4;
+      color: #fff;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+
+    .cliente-nome {
+      font-size: 14px;
+      color: #333;
+    }
+
+    .icones {
+      font-size: 18px;
+      color: #333;
+    }
+
+   /* Ajuste no menu de categorias para evitar rolagem indesejada */
+.menu-categorias {
+  background-color: #fff;
+  padding: 12px 32px;
+  font-size: 16px;
+  border-bottom: 1px solid #ddd;
+  overflow-x: hidden; /* Impede a rolagem horizontal no menu de categorias */
+}
+
+/* Adicionar controle sobre overflow horizontal em outros pontos */
+body, .promo-bar, header.header, .menu-categorias, .banner, .supersale, .lancamentos {
+  overflow-x: hidden; /* Impede a rolagem horizontal */
+}
+
+
+    .menu-categorias .menu-linha {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-left: 190px;
+    }
+
+    .menu-categorias button {
+      background: none;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .menu-categorias ul {
+      list-style: none;
+      display: flex;
+      gap: 16px;
+      margin-top: 0;
+      padding-left: 0;
+    }
+
+    .banner {
+      width: 100%;
+      margin: 16px 0;
+      max-height: 600px;
+      object-fit: cover; 
+    }
+
+    .supersale {
+      background-color: #fff;
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .supersale h2 {
+      color: #d9534f;
+      font-size: 24px;
+    }
+
+    .supersale h3 {
+      font-size: 32px;
+      color: #0061A1;
+    }
+
+    .lancamentos {
+      padding: 16px 32px;
+    }
+
+    .lancamentos h2 {
+      font-size: 20px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ver-mais {
+      font-size: 14px;
+      color: #0061A1;
+      text-decoration: none;
+    }
+
+    .carrossel-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .carrossel {
+   display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  scroll-behavior: smooth;
+  box-sizing: border-box; /* Garantir que o padding e margin não extrapolem o tamanho */
+}
+
+    .card-produto {
+      min-width: 180px;
+      background-color: #fff;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    .card-produto img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .tag-novo {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background-color: #28a745;
+      color: #fff;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .btn-scroll {
+      background-color: #0061A1;
+      color: #fff;
+      border: none;
+      padding: 8px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    
+   
+    @media (max-width: 768px) {
+  .menu-linha {
+    display: flex;
+    flex-wrap: wrap; /* Faz os itens quebrarem de linha em telas menores */
+    gap: 8px; /* Adiciona espaço entre os itens */
+    width: 100%; /* Garante que ocupe a largura inteira */
+    margin: 0; /* Remove qualquer margem */
+    padding-left: 16px; /* Ajusta o padding à esquerda */
+    padding-right: 16px; /* Ajuste o espaço à direita */
+  }
+
+  .menu-categorias ul {
+    margin: 0; /* Remove qualquer margem */
+    padding: 0; /* Remove qualquer padding */
+    width: auto; /* Não permite que a largura da lista ultrapasse o necessário */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Alinha todos os itens à esquerda */
+  }
+
+  .menu-categorias li {
+    margin-right: 16px; /* Espaçamento entre os itens */
+  }
+
+  .menu-categorias button {
+    margin-bottom: 8px; /* Diminui o espaço entre o botão e os itens abaixo */
+  }
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- PROMOÇÃO -->
+  <div class="promo-bar">
+    Ganhe <strong>R$10,00</strong> de desconto no seu primeiro pedido. Utilize o cupom <strong>DESCONTO10</strong>
+  </div>
+
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <div class="grupo-esquerdo">
+      <div class="logo">AVANTI</div>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Digite aqui o que você procura" />
+        <button id="search-button">🔍</button>
+      </div>
+    </div>
+    <div class="grupo-direito">
+      <span class="cliente-nome">Olá, Nome cliente!</span>
+      <div class="icones">🛒 2</div>
+    </div>
+  </header>
+
+  <div id="mensagem-busca" class="mensagem-busca"></div>
+
+  <!-- MENU DE CATEGORIAS -->
+  <nav class="menu-categorias">
+    <div class="menu-linha">
+      <button>☰ Todas as Categorias</button>
+      <ul>
+        <li>Departamento </li>
+        <li>Departamento </li>
+        <li>Departamento </li>
+        <li>Departamento </li>
+        <li>Departamento </li>
+        <li>Departamento </li>
+        <li>Departamento </li>
+        <li>Departamento </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- BANNER -->
+  <img src="imagens/a4d0d60e-5789-4f51-8965-aac724a25566-cover.png" class="banner" alt="Banner Supersale" />
+
+  <!-- SUPER SALE -->
+  <section class="supersale">
+    <h2>SUPERSALE</h2>
+    <p>ITENS SELECIONADOS COM ATÉ</p>
+    <h3>50% OFF</h3>
+  </section>
+
+  <!-- LANÇAMENTOS COM CARROSSEL -->
+  <section class="lancamentos">
+    <h2>Lançamentos <a href="#" class="ver-mais">Ver mais</a></h2>
+    <div class="carrossel-wrapper">
+      <button class="btn-scroll esquerda" onclick="scrollEsquerda()">◀</button>
+      <div class="carrossel" id="carrossel">
+        <div class="card-produto">
+          <span class="tag-novo">NOVO</span>
+          <img src="imagens/ARI-2053-006_zoom1.webp" alt="Produto 1" />
+          <h3>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</h3>
+        </div>
+        <div class="card-produto">
+          <span class="tag-novo">NOVO</span>
+          <img src="imagens/ARI-2053-006_zoom1.webp" alt="Produto 2" />
+          <h3>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</h3>
+        </div>
+        <div class="card-produto">
+          <span class="tag-novo">NOVO</span>
+          <img src="imagens/ARI-2053-006_zoom1.webp" alt="Produto 3" />
+          <h3>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</h3>
+        </div>
+        <div class="card-produto">
+          <span class="tag-novo">NOVO</span>
+          <img src="IMAGENS/ARI-2053-006_zoom1.webp" alt="Produto 3" />
+          <h3>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</h3>
+        </div>
+        <div class="card-produto">
+          <span class="tag-novo">NOVO</span>
+          <img src="imagens/ARI-2053-006_zoom1.webp" alt="Produto 3" />
+          <h3>Lorem Ipsum Dolor Sit Amet Consectetuer Adipiscing Elit</h3>
+        </div>
+      </div>
+      <button class="btn-scroll direita" onclick="scrollDireita()">▶</button>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Corpo */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+/* TOPO AZUL */
+.top-bar {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar span {
+  font-size: 14px;
+}
+
+.whatsapp-button {
+  background-color: #25D366;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe5d;
+}
+
+/* CABEÇALHO */
+.header {
+  background-color: white;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ccc;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+
+.search-container input {
+  flex: 1;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px 0 0 8px;
+  outline: none;
+}
+
+.search-container button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.search-container button:hover {
+  background-color: #0056b3;
+}
+
+.profile-icon {
+  font-size: 24px;
+}
+
+/* MENU DE CATEGORIAS */
+.menu-categorias {
+  display: flex;
+  align-items: center;
+  background-color: #201212;
+  color: white;
+  padding: 12px 16px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.menu-categorias span {
+  font-weight: bold;
+}
+
+.menu-categorias ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-left: 0;
+  margin: 0;
+}
+
+.menu-categorias li {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.menu-categorias li:hover {
+  color: #ffcc00;
+}
+
+/* RESPONSIVO */
+@media (max-width: 767px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-container {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .search-container input,
+  .search-container button {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+
+  .menu-categorias {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-categorias ul {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
