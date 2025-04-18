@@ -25,6 +25,7 @@ Para rodar o projeto localmente, siga os seguintes passos:
 O projeto é totalmente responsivo, adaptando-se para dispositivos móveis e desktops. As principais alterações são feitas com o uso de Media Queries.
 
 🔧 Como Contribuir
+
 1.Faça o fork deste repositório.
 
 2.Crie uma branch para sua modificação:
