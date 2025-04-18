@@ -25,24 +25,20 @@ Para rodar o projeto localmente, siga os seguintes passos:
 O projeto é totalmente responsivo, adaptando-se para dispositivos móveis e desktops. As principais alterações são feitas com o uso de Media Queries.
 
 🔧 Como Contribuir
-Faça o fork deste repositório.
+1.Faça o fork deste repositório.
 
-Crie uma branch para sua modificação:
-
-bash
+2.Crie uma branch para sua modificação:
 git checkout -b minha-modificacao
-Faça suas alterações e adicione as mudanças:
 
-bash
+3.Faça suas alterações e adicione as mudanças:
 git add .
 git commit -m "Descrição da modificação"
-Envie suas mudanças para o repositório remoto:
 
-bash
+4.Envie suas mudanças para o repositório remoto:
 git push origin minha-modificacao
 Abra um Pull Request no GitHub.
 
-📄 Licença
+📄 Licença:
 Este projeto é de uso pessoal e acadêmico. Caso queira usá-lo para outros fins, entre em contato com o autor.
 
 
